@@ -120,7 +120,6 @@
       outline: 3px solid var(--cyan);
       outline-offset: 4px;
     }
-
     .cake {
       position: relative;
       width: 180px;
@@ -382,7 +381,7 @@
   <header class="page-shell flex items-center justify-between py-6">
     <a class="flex items-center gap-2 text-sm font-semibold tracking-wide text-white/85 no-underline" href="#" aria-label="Birthday celebration home">
       <span class="text-xl" aria-hidden="true">✦</span>
-      <span>THE BIRTHDAY CLUB</span>
+      <span>THE BIRTHDAY ADVICK CLUB</span>
     </a>
     <span class="eyebrow rounded-full border border-white/10 bg-white/[.04] px-4 py-2 text-[10px] font-semibold uppercase text-white/55">Birthday superstar</span>
   </header>
@@ -396,6 +395,7 @@
         </p>
         <h1 class="hero-title serif text-5xl font-bold leading-[1.08] sm:text-6xl lg:text-[4.75rem]">
           Happy<br><span class="gold-text">Birthday!</span>
+          <span class="gold-text mt-2 block text-6xl sm:text-7xl lg:text-8xl">Advick</span>
         </h1>
         <div class="birthday-wish mx-auto mt-6 max-w-xl rounded-[26px] p-5 text-left sm:p-7 md:mx-0">
           <p class="text-sm font-semibold leading-7 text-white/90 sm:text-base sm:leading-8">
@@ -404,7 +404,7 @@
         </div>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start">
           <button class="wish-button inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 px-7 py-3 text-sm font-bold text-white" id="wish-button" type="button" aria-haspopup="dialog">
-            <span aria-hidden="true">🎈</span> Click for a Surprise!
+            <span aria-hidden="true">🎈</span> Gullu please open this!
           </button>
         </div>
         <div class="mt-9 flex items-center justify-center gap-3 text-xs text-white/50 md:justify-start">
@@ -465,7 +465,7 @@
       “May your life be filled with happiness, your dreams come true, and your future shine bright.”
     </blockquote>
     <p class="mt-4 text-[10px] font-semibold uppercase tracking-[.22em] text-white/45">With all our love and blessings</p>
-    <p class="mt-7 text-xs text-white/40">We love you so much <span class="text-pink-300">♥</span></p>
+    <p class="mt-7 text-xs text-white/40">Sending you birthday hugs <span class="text-pink-300">♥</span></p>
   </footer>
 
   <div id="wish-root"></div>
@@ -475,11 +475,10 @@
     <span class="final-heart final-heart-three" aria-hidden="true">♥</span>
     <span class="final-heart final-heart-four" aria-hidden="true">♥</span>
     <section class="final-card">
-      <h1 class="final-title serif text-4xl font-bold sm:text-6xl" id="final-title" tabindex="-1">Same to You ❤️</h1>
-      <p class="final-tamil mt-7 text-xl font-medium sm:text-2xl" lang="ta">நீ எங்களுக்கு ரொம்ப முக்கியம்... நீதான் எங்கள் உலகம்! ❤️</p>
+      <h1 class="final-title serif text-4xl font-bold sm:text-6xl" id="final-title" tabindex="-1">Love You, Gullu ❤️</h1>
       <a
         class="whatsapp-button"
-        href="https://wa.me/919597387782?text=Thank%20you%20so%20much%21%20%E2%9D%A4%EF%B8%8F"
+        href="https://wa.me/919626260587?text=Same%20To%20You...%20Thank%20You%20%E2%9D%A4%EF%B8%8F"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Send a thank-you message on WhatsApp"
@@ -578,8 +577,8 @@
 
       const wishRoot = document.getElementById("wish-root");
       const wishButton = document.getElementById("wish-button");
-      const whatsappNumber = "919597387782";
-      const whatsappMessage = encodeURIComponent("Thank you so much! ❤️");
+      const whatsappNumber = "919626260587";
+      const whatsappMessage = encodeURIComponent("Same To You Prasana... Thank You ❤️");
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
       document.querySelector(".whatsapp-button").href = whatsappUrl;
 
@@ -602,13 +601,13 @@
             <button class="modal-close absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-white/10 text-xl text-white/65 transition hover:bg-white/10 hover:text-white" type="button" aria-label="Close birthday wish">×</button>
             <div class="mb-3 text-4xl" aria-hidden="true">💌</div>
             <p class="eyebrow text-[10px] font-bold uppercase text-rose-200">A little surprise, with lots of love</p>
-            <h2 class="serif mt-2 text-3xl font-bold text-white" id="wish-title">Unlock your birthday message</h2>
+            <h2 class="serif mt-2 text-3xl font-bold text-white" id="wish-title">Unlock your birthday surprise</h2>
             <p class="mt-3 text-sm leading-6 text-white/65" id="surprise-instructions">Type the secret words to open your special birthday note.</p>
 
             <form class="mt-6 text-left" id="secret-form">
-              <label class="mb-2 block text-sm font-semibold text-white" for="secret-answer">Your secret word</label>
-              <input class="secret-input" id="secret-answer" name="secret-answer" type="text" placeholder="Type your secret message / words" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="secret-hint secret-error">
-              <p class="mt-2 text-xs text-white/55" id="secret-hint">A little phrase that says how much you care 💗</p>
+              <label class="mb-2 block text-sm font-semibold text-white" for="secret-answer">Enter the secret word</label>
+              <input class="secret-input" id="secret-answer" name="secret-answer" type="text" placeholder="Type the secret word..." autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="secret-hint secret-error">
+              <p class="mt-2 text-xs text-white/55" id="secret-hint">A little birthday secret just for you 💗</p>
               <p class="mt-2 min-h-5 text-sm text-rose-300" id="secret-error" aria-live="polite"></p>
               <div class="mt-3 text-center">
                 <button class="wish-button rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-500 px-7 py-3 text-sm font-bold text-white" type="submit">Reveal the message</button>
@@ -644,7 +643,7 @@
         backdrop.querySelector("#secret-form").addEventListener("submit", (event) => {
           event.preventDefault();
           const answer = backdrop.querySelector("#secret-answer").value.trim().replace(/\s+/g, " ").toLowerCase();
-          if (answer !== "i love you") {
+          if (answer !== "gullu") {
             backdrop.querySelector("#secret-error").textContent = "That’s not quite right. Please try again. 💛";
             backdrop.querySelector("#secret-answer").setAttribute("aria-invalid", "true");
             backdrop.querySelector("#secret-answer").focus();
@@ -674,7 +673,7 @@
           const remaining = candles.filter((item) => !item.classList.contains("blown-out")).length;
           cakeMessage.textContent = remaining
             ? "Make another wish, sweetheart ✨"
-            : "May all your wishes come true! We love you! 🎉";
+            : "May all your wishes come true! 🎉";
           if (!remaining) burst(90);
         });
       });
