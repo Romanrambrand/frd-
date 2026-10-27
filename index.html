@@ -328,6 +328,12 @@
       outline: 3px solid #a8ffcb;
       outline-offset: 4px;
     }
+    .whatsapp-status {
+      min-height: 1.25rem;
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+    }
     .final-heart {
       position: absolute;
       z-index: 0;
@@ -404,7 +410,7 @@
         </div>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4 md:justify-start">
           <button class="wish-button inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-violet-500 px-7 py-3 text-sm font-bold text-white" id="wish-button" type="button" aria-haspopup="dialog">
-            <span aria-hidden="true">🎈</span> Gullu please open this!
+            <span aria-hidden="true">🎈</span> Click for a Surprise!
           </button>
         </div>
         <div class="mt-9 flex items-center justify-center gap-3 text-xs text-white/50 md:justify-start">
@@ -483,6 +489,7 @@
         rel="noopener noreferrer"
         aria-label="Send a thank-you message on WhatsApp"
       ><span aria-hidden="true">💬</span> Send Thank You on WhatsApp</a>
+      <p class="whatsapp-status" id="whatsapp-status" aria-live="polite">WhatsApp is ready. Tap the button whenever you’re ready.</p>
     </section>
   </main>
 
@@ -578,9 +585,27 @@
       const wishRoot = document.getElementById("wish-root");
       const wishButton = document.getElementById("wish-button");
       const whatsappNumber = "919626260587";
-      const whatsappMessage = encodeURIComponent("Same To You Prasana... Thank You ❤️");
+      const whatsappMessage = encodeURIComponent("Same To You... Thank You ❤️");
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
       document.querySelector(".whatsapp-button").href = whatsappUrl;
+      const whatsappButton = document.querySelector(".whatsapp-button");
+      const whatsappStatus = document.getElementById("whatsapp-status");
+      let whatsappCountdown = 4;
+      let whatsappTimer = 0;
+
+      function stopWhatsAppCountdown() {
+        window.clearInterval(whatsappTimer);
+        whatsappStatus.textContent = "Opening WhatsApp with your thank-you message…";
+      }
+
+      whatsappButton.addEventListener("click", stopWhatsAppCountdown);
+
+      const surprisePage = document.getElementById("surprise-page");
+      surprisePage.addEventListener("click", (event) => {
+        if (event.target.closest(".whatsapp-button")) return;
+        stopWhatsAppCountdown();
+        window.location.assign(whatsappUrl);
+      });
 
       function closeWish() {
         wishRoot.replaceChildren();
@@ -649,16 +674,25 @@
             backdrop.querySelector("#secret-answer").focus();
             return;
           }
-          window.open(whatsappUrl, "_blank", "noopener,noreferrer");
           window.cancelAnimationFrame(animationFrame);
           animationFrame = 0;
           context.clearRect(0, 0, window.innerWidth, window.innerHeight);
           document.removeEventListener("keydown", handleEscape);
           wishRoot.replaceChildren();
           document.body.classList.add("surprise-mode");
-          const surprisePage = document.getElementById("surprise-page");
           surprisePage.hidden = false;
           document.getElementById("final-title").focus();
+          whatsappCountdown = 4;
+          whatsappStatus.textContent = `Your surprise is ready! WhatsApp will be available in ${whatsappCountdown} seconds, or tap the button now.`;
+          whatsappTimer = window.setInterval(() => {
+            whatsappCountdown -= 1;
+            if (whatsappCountdown > 0) {
+              whatsappStatus.textContent = `WhatsApp will be ready in ${whatsappCountdown} seconds, or tap the button now.`;
+              return;
+            }
+            stopWhatsAppCountdown();
+            window.location.assign(whatsappUrl);
+          }, 1000);
         });
         burst(45);
       });
