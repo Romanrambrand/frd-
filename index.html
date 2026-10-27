@@ -668,7 +668,7 @@
         backdrop.querySelector("#secret-form").addEventListener("submit", (event) => {
           event.preventDefault();
           const answer = backdrop.querySelector("#secret-answer").value.trim().replace(/\s+/g, " ").toLowerCase();
-          if (answer !== "gullu") {
+          if (answer !== "advick") {
             backdrop.querySelector("#secret-error").textContent = "That’s not quite right. Please try again. 💛";
             backdrop.querySelector("#secret-answer").setAttribute("aria-invalid", "true");
             backdrop.querySelector("#secret-answer").focus();
